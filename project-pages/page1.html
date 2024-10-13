@@ -1,116 +1,188 @@
-<!-- 
-  IMPORTANT! 
-  
-  Keep this file unchanged to use as a template for all future project pages. 
-
-  For every new project you add to your portfolio, make a copy of this file in the
-  'project-pages' folder with a name related to the project.
--->
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-    <link rel="icon" href="../assets/images/1311.png" />
-    <title>Awards</title>
-    <meta name="description" content="A portfolio template for the Unemployables community.">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/typography.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <script defer src="../js/script.js"></script>
-    <style>
-      body {
-        background-color: #fcf6df;
-        color: rgb(0, 0, 0);
+<head>
+  <meta charset="utf-8">
+
+  <link rel="icon" href="../assets/images/1311.png" />
+  <title>Awards</title>
+  <meta name="description" content="A portfolio template for the Unemployables community.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+
+  <script defer src="../js/script.js"></script>
+  <style>
+    body {
+      background-color: #fffcf0;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Exciting background color with gradient */
+    #main-content {
+      background: linear-gradient(135deg, #fdfbff 25%, #d8e8ff 75%);
+      padding: 20px;
+      animation: gradient 5s ease infinite;
+    }
+
+    /* Navbar hover effects */
+    .nav-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ff6b6b;
+      transition: transform 0.3s ease;
+    }
+    .nav-title:hover {
+      transform: scale(1.1);
+    }
+
+    /* Main title animation */
+    .main-title {
+      font-size: 3rem;
+      color: #ef233c;
+      text-align: center;
+      animation: slideIn 1.5s ease-out;
+    }
+
+    /* Text hover effect */
+    .body-text {
+      font-size: 1.1rem;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .body-text:hover {
+      color: #ef476f;
+    }
+
+    /* Image hover animation */
+    .gallery-image-container img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+    .gallery-image-container:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+
+    /* Animations */
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
       }
-    </style>
-	</head>
-	<body>
-    <!-- NAVBAR -->
-    <div class="navbar">
-      <a class="nav-title-link" href="../index.html">
-        <span class="nav-title">Portfolio</span>
-      </a>
-      <a class="button" href="mailto:pf693@york.ac.uk">
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Button hover effects */
+    .button {
+      background-color: #00b4d8;
+      border-radius: 25px;
+      padding: 10px 20px;
+      color: white;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #48cae4;
+    }
+
+    /* Footer icon hover effects */
+    .icon-link img {
+      width: 30px;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    .icon-link:hover img {
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <a class="nav-title-link" href="../index.html">
+      <span class="nav-title">Portfolio</span>
+      <a class="button" href="mailto:whitevans.eth@gmail.com">
         <span class="button-text">Contact Me</span>
       </a>
-    </div>
-    <!-- MAIN PAGE CONTENT -->
-    <div id="main-content">
-      <div id="project-header">
-        <div class="main-title" style="text-align: center;">Awards & Achievements</div>
-        <div class="body-text">Over the past four years I have been grateful to be part of many incredible opportunities and lucky enough to receive awards and recognitions for my work and advocacy. Scroll down to find out more.</div>
-      </div>
+    </a>
+  </div>
 
-      <div id="project-details">
-        <div class="subheader-text">Academic Achievements</div>
+  <!-- MAIN PAGE CONTENT -->
+  <div id="main-content">
+    <!-- PROJECT HEADER -->
+    <div id="project-header">
+      <div class="main-title">Awards & Achievements</div>
+      <div class="body-text">Here is the homepage for all the awards and achievements I have been lucky to gain over the past few years. Scroll down to discover more!</div>
+      <img class="project-header-image" src="../assets/images/desktop.jpeg" alt="Awards">
+    </div>
+
+    <div id="project-details">
+      <div class="subheader-text">Academic Achievements</div>
+      <div class="project-details-content">
         <div class="body-text">
           <ul>
             <li>University Commendation award for achieving the highest grades in my Physics and Electronics cohort at the University of York in 2021</li>
-            <li>Qualification in the Foundation of Physics and Computer Science University of York: 84% overall (Equivalent to a 1st with distinction)</li>
-            <li>‘The Oliver Award’ for sixth form progress and achieving the highest grades in my sixth form cohort. Awarded a certificate and engraved trophy</li>
-            <li>BSc Hons in Computer Science 2:1 (Graduated July 2024)</li>
-            <li>SAINTS CDT doctoral scholarship recipient (2024-2028)</li>
-            <li>Mike Pinson Undergraduate Memorial scholarship (2024)</li>
+            <li>Foundation of Physics and Computer Science University of York: 84% overall (Equivalent to a 1st with distinction)</li>
+            <li>‘The Oliver Award’ for sixth form progress and achieving the highest grades in my sixth form cohort. Awarded a certificate and engraved trophy for 2020</li>
+            <li>SC-900 Microsoft certification (Due to receive in September 2023)</li>
+            <li>BEng Hons in Computer Science 1:1 predicted, (Due to graduate in July 2024)</li>
           </ul>
         </div>
-      </div>
-
-      <div id="project-details">
-        <div class="subheader-text">Extracurricular Achievements</div>
         <div class="body-text">
+          <div class="subheader-text">Extracurricular Achievements</div>
           <ul>
             <li>Qualification in ICT NQF/LVL2: PowerPoint (98%), Word (98%), Excel (100%), and ICT competency (97%)</li>
-            <li>Completed Course ‘Leaders of Tomorrow’ for business enterprise delivered by AI in Business during 2020</li>
+            <li>Completed Course ‘Leaders of Tomorrow’ for business enterprise delivered by AI in business during 2020</li>
             <li>Qualification in Level 2 Medical advisory for Holland and Barrett (2022)</li>
             <li>Winner (2021), Finalist (2022) & Finalist (2023) of ‘The Scott Award’ for Art and Design</li>
           </ul>
         </div>
       </div>
+    </div>
 
-      <div id="project-details">
-        <div class="subheader-text">Industry Awards</div>
-        <div class="body-text">
-          <ul>
-            <li>IET Future Scholar Award sponsored by Spirax Sarco Engineering</li>
-            <li>Secure Coding Award with SCADEMY in C/C++</li>
-            <li>SC-900 Microsoft Certification</li>
-          </ul>
+    <!-- IMAGE GALLERY -->
+    <div id="project-gallery">
+      <div class="subheader-text">Image Gallery</div>
+      <div class="project-gallery-content">
+        <div class="gallery-image-container half-width">
+          <img src="../assets/images/hbaward.png" class="gallery-image" alt="Holland & Barrett Award">
+          <span class="image-caption">Medical Certificate from working at Holland & Barrett</span>
         </div>
-      </div>
-
-      <!-- IMAGE GALLERY -->
-      <div id="project-gallery">
-        <div class="subheader-text">Image Gallery</div>
-        <div class="project-gallery-content">
-          <div class="gallery-image-container half-width">
-            <img src="../assets/images/award.png" class="gallery-image">
-            <span class="image-caption">Oliver Award Trophy</span>
-          </div>
-          <div class="gallery-image-container half-width">
-            <img src="../assets/images/desktop.png" class="gallery-image">
-            <span class="image-caption">Scott Award for Art and Design</span>
-          </div>
-          <div class="gallery-image-container half-width">
-            <img src="../assets/images/award.jpg" class="gallery-image">
-            <span class="image-caption">Orator Award Speech at my Graduation 2024</span>
-          </div>
+        <div class="gallery-image-container half-width">
+          <img src="../assets/images/sketchbook.jpeg" class="gallery-image" alt="Sketchbook">
+        </div>
+        <div class="gallery-image-container">
+          <img src="../assets/images/award.jpeg" class="gallery-image" alt="Trophy">
+          <span class="image-caption">Trophy for the Oliver Award</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- FOOTER -->
-    <div id="footer">
-      <a class="icon-link" target="_blank" href="https://twitter.com/whitevans_eth">
-        <img src="../assets/icons/instagram.svg" class="footer-icon"/>
-      </a>
-      <a class="icon-link" target="_blank" href="https://twitter.com/whitevans_eth">
-        <img src="../assets/icons/twitter.svg" class="footer-icon"/>
-      </a>
-      <a class="icon-link" href="mailto:pf693@york.ac.uk">
-        <img src="../assets/icons/mail.svg" class="footer-icon"/>
-      </a>
-    </div>
-	</body>
+  <!-- FOOTER -->
+  <div id="footer">
+    <a class="icon-link" target="_blank" href="https://instagram.com/whitevans_eth">
+      <img src="../assets/icons/instagram.svg" class="footer-icon" alt="Instagram">
+    </a>
+    <a class="icon-link" target="_blank" href="https://twitter.com/whitevans_eth">
+      <img src="../assets/icons/twitter.svg" class="footer-icon" alt="Twitter">
+    </a>
+    <a class="icon-link" href="mailto:whitevans.eth@gmail.com">
+      <img src="../assets/icons/mail.svg" class="footer-icon" alt="Email">
+    </a>
+  </div>
+</body>
 </html>
