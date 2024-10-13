@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+    <link rel="icon" href="../assets/images/1311.png" />
+    <title>Portfolio</title>
 		<meta charset="utf-8">
 		<title>Poppy Fynes</title>
 		<meta name="description" content="A portfolio template for the Unemployables community.">
@@ -9,24 +11,22 @@
 		<link rel="stylesheet" href="./css/layout.css">
 		<link rel="stylesheet" href="./css/typography.css">
 		<link rel="stylesheet" href="./css/utilities.css">
-
 		<script defer src="./js/script.js"></script>
 		<style>
 			body {
-				background-color: #fffcf0;
-			}
+          background-color: #fcf6df;
+          font-size: 100px;
+        }
 		</style>
 	</head>
 	<body>
     <!-- NAVBAR -->
     <div class="navbar">
-      <a class="nav-title-link" href="./index.html">
-        <!-- TODO - Change the "Portfolio" to whatever you want displayed in the top left -->
-        <span class="nav-title">Under construction!</span>
-         <!-- TODO - Change the email after 'mailto:' to your email address for contact -->
-        <a class="button" href="mailto:poppyfynes@googlemail.com">
-          <span class="button-text">Contact Me</span>
-        </a>
+      <a class="nav-title-link" href="../index.html">
+        <span class="nav-title">Portfolio</span>
+      </a>
+      <a class="button" href="pf693@york.ac.uk">
+        <span class="button-text">Contact Me</span>
       </a>
     </div>
 
@@ -36,30 +36,18 @@
       <!-- PORTFOLIO HEADER -->
       <div id="portfolio-header">
         <div id="portfolio-header-image-container">
-          <!-- 
-            TODO
-
-            - Change the img "src" attribute to point to the Unemployable image you uploaded (or whatever image).
-            - Change the number to point to your Unemployable & replace the OpenSea link with your own
-            - If you aren't using an Unemployable as your image, remove the entire "a" element
-          -->
-          <img src="./assets/images/1311.png" class="portfolio-header-image">
+        
+          <img src="./assets/images/photo.png" class="portfolio-header-image">
           <a class="no-underline" target="_blank" href="https://opensea.io/assets/0xe0be388ab81c47b0f098d2030a1c9ef190691a8a/1311">
-            <span class="image-caption">scroll down for more!</span>
+            <span class="image-caption"></span>
           </a>
         </div>
 
-          <!-- 
-            TODO
-
-            - Change the main-title to whatver you want
-            - Change the body-text after that to a quick introduction to what you do
-            - Edit the button text if you feel like it. It will link to the projects section below.
-          -->
+  
         <div id="portfolio-header-text-container">
             <div class="header-text">
-              <span class="main-title">Hey, I'm Poppy!</span>
-              <div class="body-text">Im a Computer Science student with experience in Systems security and an interest in AI solutions for accessible and creative technologies.</div>
+                <h1 class="main-title">Poppy Fynes</h1> 
+              <div class="body-text">Doctoral Researcher at the University of York, part time researcher in Digital Accessibility and Project based developer with experience in Python, C++ and Java. </div>
             </div>
             <a class="button" id="my-work-link" href="https://github.com/popESF">
   	     <span class="button-text">Check out my GitHub</span> 
@@ -69,18 +57,13 @@
         </div>
       </div>
 
-      <!-- ABOUT SECTION -->
-      <!-- 
-        TODO
-
-        - Change the subheader-text to whatever header you want
-        - Add paragraphs using the <div class="body-text"></div> elements in the "about-section-content"
-      -->
       <div id="about-section">
-        <span class="subheader-text">My Background / About Me</span>
+        <span class="subheader-text">About Me</span>
         <div class="about-section-content">
-          <div class="body-text">Hey! My name is poppy and i am a 21 year old computer science student at the University of York (UK) I have interests in areas such as Systsems Security, Cyber-physical Systems and real world AI implementations. This summer 2023, i will be working across the UK for a Cyber security firm for my internship, and also working on my PhD proposal!</div>
-          <div class="body-text">In my spare time i like to take part in CTF events, and complete creative projects such as web design, game dev, UI/UX design and taking part in Art & Design competitions. If any of this is of interest to you, or want to get to know me and my work, my contacts are the bottom of this page</div>
+          <div class="body-text">I am a current Doctoral Researcher in Safe Ethical AI at the University of York's Institute for Safe Autonomy. My work focuses on combining Digital Accessibility and Machine learning techniques with a focus on creating sign language recognition models for use in real life safety scenarios.
+
+            My interests and experiences stem across machine learning, interactive systems and safe & ethical cyber security. In my spare time i work as a commission based artist and have won several awards for my work. Scroll down to learn more about me and my work!</div>
+          
         </div>
       </div>
 
@@ -113,7 +96,7 @@
                 - PROJECT_PAGE_NAME.html: the html filename for the project (must be in project-pages folder)
           -->
           <div class="project-card">
-            <img src="./assets/images/desktop.png" class="project-image">
+            <img src="./assets/images/award.jpg" class="project-image">
             <div class="project-card-text-container">
               <div class="subheader-text project-title">Awards & Commendations</div>
               <div class="body-text project-card-text">Click here to view my current and previous achievements, awards and commendations for my work and academics.</div>
@@ -124,7 +107,7 @@
             </a>
           </div>
           <div class="project-card">
-            <img src="./assets/images/code.png" class="project-image">
+            <img src="./assets/images/convo.jpg" class="project-image">
             <div class="project-card-text-container">
               <div class="subheader-text project-title">Work Experience</div>
               <div class="body-text project-card-text">Click here to learn more about my work experience as well as my current skills, and what else i am working on achieving.</div>
@@ -135,7 +118,7 @@
             </a>
           </div>
           <div class="project-card">
-            <img src="./assets/images/sketchbook.png" class="project-image">
+            <img src="./assets/images/cook.png" class="project-image">
             <div class="project-card-text-container">
               <div class="subheader-text project-title">Projects</div>
               <div class="body-text project-card-text">Click here to see fun projects i have worked on!</div>
@@ -172,7 +155,7 @@
       
         This should be the same across all pages.
       -->
-      <a class="icon-link" href="mailto:poppyfynes@googlemail.com">
+      <a class="icon-link" href="mailto:pf693@york.ac.uk">
         <image src="./assets/icons/mail.svg" class="footer-icon"/>
       </a>
 
