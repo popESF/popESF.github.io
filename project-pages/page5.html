@@ -56,34 +56,121 @@
     <h1>The York Declaration: An Ethical Approach for LLM Deployment</h1>
   </header>
   <div class="container">
-    <p><strong>UKRI AI Centre for Doctoral Training in Safe Artificial Intelligence Systems (SAINTS)</strong> in York, UK has aimed to bridge the gap between disciplines by bringing together doctoral scholars from various fields. These scholars have united to consider ethical issues arising from AI, particularly focusing on large language models (LLMs) due to their unique capabilities. This declaration aims to protect end users by addressing ethical concerns at the point of deployment, ensuring a responsible future for LLM systems.</p>
+    <p><strong>UKRI AI Centre for Doctoral Training in Safe Artificial Intelligence Systems (SAINTS)</strong> in York, UK has aimed to bridge the gap between disciplines by combining a range of doctoral scholars from different disciplines into one programme. During the course of SAINTS, a portion of these doctoral scholars came together and considered the many ethical issues arising from AI. They focused on large language models (LLMs) in particular, because of the distinct capabilities LLMs can exhibit. Their focus on deployment stems from an interest in the protection of potential end users of LLMs. By addressing the systemic issues within the initial deployment, a future for such AI systems that act ethically can be ensured. The group came up with declarations that could be followed to assure this future which are portrayed in the next section.</p>
 
     <h2>Preamble</h2>
-    <p>Radical transformations necessitate radical challenges that must be anticipated and addressed. We, as responsible members of society and future scientists, ask fundamental questions: What should AI not do? What rules should guide its deployment? While this is a topic for democratic debate, common sense morality suggests technology should not lie, alienate, dominate, or discriminate. Our goal is a society that fosters human autonomy and harmony with the environment.</p>
+    <p>For with radical transformations come necessarily radical challenges, that we believe have to be addressed and anticipated beforehand. We believe so, because it is our responsibility as a society, as citizens, and as future scientists.</p>
+    <p>What do we believe AI should not do? What rules should we prescribe to the deployment of this technology? This ought to be a democratically debated issue, but some common sense morality norms came to mind: should a technology lie? Deprive? Alienate? Influence? Enslave? Impoverish? Dominate? Discriminate? Destroy? Kill? and so on. We had to sound our values, and see which of those align with the society we wish for, one that encourages human autonomy and flourishing, in harmony with our environment. As a result, we drew on conclusions from various sources, including the Alan Turing Institute, or UNESCO Recommendations, to establish the following 7 York maxims.</p>
 
     <h2>The 7 York Maxims</h2>
-    <p>Our conclusions, drawing from sources such as the Alan Turing Institute and UNESCO, are expressed through the following seven maxims:</p>
     <ul class="maxims-list">
-      <li><strong>“Do no harm”: Safe Systems</strong> - Safety is defined as the absence of unintentional harm, while security is the absence of intentional harm. Addressing these risks requires a multi-disciplinary approach involving safety engineering, machine learning, sociology, and philosophy.</li>
-      <li><strong>Aim for neutrality, when not justice</strong> - LLM deployment should aim to avoid bias and ensure fair treatment across diverse groups, focusing on equitable outcomes to prevent discrimination.</li>
-      <li><strong>Tackling transparency</strong> - Transparency concerns the availability of information about an LLM, including responsible actors and limitations. We recommend third-party audits to ensure accountability without revealing sensitive trade secrets.</li>
-      <li><strong>Moral responsibility: shifting accountability space</strong> - Developers hold increasing responsibility as LLMs gain agency. Shifting liability patterns require rigorous testing and risk mitigation.</li>
-      <li><strong>Preserving the only ecosystem fit for life</strong> - To mitigate LLMs' environmental impact, deployment should align with sustainability goals, minimizing emissions and resource usage.</li>
-      <li><strong>Anticipating the mutations of employment</strong> - To counter potential job displacement, we recommend exploring reskilling, Universal Basic Income, and shared productivity gains.</li>
-      <li><strong>Windows for agency on both individual and collective levels</strong> - AI systems must respect autonomy and avoid creating a surveillance society. Third-party evaluations should guard against misinformation and maintain democratic principles.</li>
-    </ul>
+      <li><strong>“Do no harm”: Safe Systems</strong><br>
+      In this document, we define safety as the absence of unintentional harms, and security as the absence of intentional harms. Attempting to define harm in this context is uniquely challenging, since there are so many possible ways in which LLMs could take objectionable actions. This is due to the general capabilities exhibited by LLMs, and the uncertainty regarding their use and development. For example, LLMs could cause physical harm if they are used during the development and deployment of physical robotics, they could also cause psychological harm if a bad actor were to deploy an LLM for the purpose of misinformation, and they could cause sociotechnical harms if LLMs are used inappropriately by our institutions.</li>
 
-    <h3>Recommendations:</h3>
-    <div class="recommendations">
+      <p>It is essential that we develop a strategy for addressing safety and security risks induced by LLMs. We must resolve uncertainty regarding the trajectory of the technology so that we can better understand the risk landscape and allocate our resources appropriately. Furthermore, we must understand how to address pertinent risks once they are identified. Does the nature of this technology fundamentally change the way in which we approach risk, or will traditional assurance approaches suffice? Experts across multiple disciplines such as safety engineering, machine learning, sociology and philosophy must iterate on frameworks that guide the development, deployment, and use of safe and secure language models.</p>
+
+      <li><strong>Aim for neutrality, when not justice</strong><br>
+      The deployment of LLMs should aim for neutrality, when not justice, in order to enable fairness, equity, and to prevent possible discrimination.</li>
+
+      <p>The deployment of LLMs must prioritise equitable outcomes for both agentic, which can perform tasks automatically to achieve specific objectives, and non-agentic. This means actively reducing biases within datasets and implementing bias-monitoring processes to treat all individuals and groups fairly, avoiding discrimination based on race, gender, or other protected characteristics. Equitable access and fair treatment are essential not just for current uses but also for shaping a future of fair, inclusive LLM-based systems. Therefore, developers should focus on enabling equity and fairness within their technology which in turn will avoid creating new disparities.</p>
+
+      <div class="recommendations">
+        <strong>Recommendations:</strong><br>
+        <ul>
+          <li>For these systems to act responsibly, developers need to ensure data integrity from the outset and throughout the LLM’s life cycle.</li>
+          <li>We must ensure that we do not replicate or intensify societal biases.</li>
+          <li>Access should be given for use in ways that do not alienate certain groups of people or demographics.</li>
+        </ul>
+      </div>
+
+      <li><strong>Tackling transparency</strong><br>
+      Transparency is the availability of information pertaining to: an LLM itself, and actors responsible for its instantiation. Transparency is valuable insofar as it informs the interactions between these entities and third parties. It would be problematic to publicly disclose information sufficient to reproduce a frontier model, models which are at the forefront of current language model capabilities. This is because frontier models could facilitate harmful acts.</li>
+
+      <p>Examples might include:</p>
       <ul>
-        <li>Ensure data integrity to avoid replicating societal biases.</li>
-        <li>Promote equitable access to technology, avoiding alienation of certain groups.</li>
-        <li>Implement third-party audits and adversarial testing to maintain transparency and accountability.</li>
+        <li>Offensive cybersecurity capabilities may facilitate bad actors in novel cyberattacks.</li>
+        <li>Authoritarian governments may repurpose frontier models for population control.</li>
+      </ul>
+
+      <p>While counter-arguments, which advocate for open source frontier models, include increased human agency and societal robustness, we believe that the aforementioned concerns outweigh these values. Nonetheless, frontier model developers should still be encouraged to make information about their models available to the extent that it could aid transparency and therefore accountability for their product.</p>
+
+      <p>Therefore, we suggest that the model should be reproduced by third parties for the purpose of i) auditing and ii) adversarial testing. We also note some concerns:</p>
+      <ul>
+        <li>Datasets in their entirety ought not to be disclosed, in order to protect any private information within the corpus.</li>
+        <li>Datasets may be a trade secret, so sharing them would reduce the financial incentive to develop potentially beneficial systems.</li>
+      </ul>
+
+      <p>Nonetheless, datasets ought to be exposed in some manner, in order to ensure that LLM developers have acquired data legally and socially permissibly. Furthermore, policy principles, hiring practices, training techniques and staff training could also be disclosed.</p>
+
+      <p>Therefore, we advocate for a voluntary disclosure obligation.</p>
+
+     <!-- Moral Responsibility -->
+    <li><strong>Moral Responsibility</strong><br>
+    In our ethical framework, we recognize that LLM developers and deployers have moral obligations to consider the potential consequences of their technology. AI systems, especially those as complex and capable as LLMs, carry risks and responsibilities beyond traditional software due to their potential for wide-reaching and unpredictable impacts on society.</li>
+    
+    <p>Developers should design LLMs with careful consideration of their potential misuse, harm, and social effects. Moral responsibility implies an active effort to anticipate risks and mitigate potential harms to users and communities. It includes the obligation to prevent LLMs from generating harmful content, reinforcing harmful stereotypes, or influencing users in unintended ways.</p>
+    
+    <div class="recommendations">
+      <strong>Recommendations:</strong><br>
+      <ul>
+        <li>Implement fail-safes and guidelines to prevent harmful outputs.</li>
+        <li>Encourage a culture of responsibility and ethics among developers.</li>
+        <li>Provide ongoing oversight and accountability frameworks to monitor LLM behavior over time.</li>
       </ul>
     </div>
-
+    
+    <!-- Preserving Ecosystem -->
+    <li><strong>Preserving Ecosystem</strong><br>
+    The development and deployment of LLMs should aim to preserve the ecological and social ecosystems in which they are embedded. This principle underscores a commitment to sustainable, responsible resource use, minimizing the environmental footprint of training and deploying LLMs.</li>
+    
+    <p>Training large LLMs can have significant environmental costs, such as high energy consumption and carbon emissions. Developers should be conscious of these impacts and strive for efficiency, making choices that promote sustainability and reduce unnecessary energy usage. Furthermore, they should ensure that AI advances do not inadvertently destabilize social systems, such as by impacting labor markets negatively or concentrating power.</p>
+    
+    <div class="recommendations">
+      <strong>Recommendations:</strong><br>
+      <ul>
+        <li>Adopt energy-efficient technologies and processes in AI development.</li>
+        <li>Consider environmental costs and mitigate impacts where possible.</li>
+        <li>Monitor the broader social and economic impacts of LLM deployment on ecosystems.</li>
+      </ul>
+    </div>
+    
+    <!-- Employment Mutations -->
+    <li><strong>Employment Mutations</strong><br>
+    LLM deployment can bring changes to the labor market, as automation may replace certain types of human labor. While this can increase efficiency, it may also result in job displacement and create economic disruptions for affected workers.</li>
+    
+    <p>In response, we encourage stakeholders to plan for responsible deployment strategies that include considerations for worker displacement and opportunities for reskilling and education. Policymakers and employers should aim to foster a balanced approach that maximizes benefits while supporting workers and communities affected by job changes.</p>
+    
+    <div class="recommendations">
+      <strong>Recommendations:</strong><br>
+      <ul>
+        <li>Provide pathways for reskilling and upskilling workers impacted by automation.</li>
+        <li>Support policies that address potential job displacement and economic inequality.</li>
+        <li>Encourage collaborative efforts between industry, government, and educational institutions.</li>
+      </ul>
+    </div>
+    
+    <!-- Windows for Agency -->
+    <li><strong>Windows for Agency</strong><br>
+    As LLMs gain more capabilities, it is essential to ensure they enhance rather than undermine human agency. LLM deployment should aim to provide users with meaningful control and avoid any reduction in human autonomy.</li>
+    
+    <p>This includes enabling users to understand and control how AI systems operate, and ensuring that the AI respects user preferences and decisions. Safeguards should prevent over-reliance on AI at the expense of human judgment and individual decision-making.</p>
+    
+    <div class="recommendations">
+      <strong>Recommendations:</strong><br>
+      <ul>
+        <li>Ensure transparency in AI operations to enable informed user control.</li>
+        <li>Design systems that complement and support, rather than replace, human decision-making.</li>
+        <li>Empower users to retain final authority and independence in interactions with AI.</li>
+      </ul>
+    </div>
+    
+    <!-- Conclusion -->
     <h2>Conclusion</h2>
-    <p>The York Declaration provides a practical, ethical framework for LLM deployment. Grounded in a commitment to fairness, transparency, accountability, sustainability, and safety, this declaration offers a path toward responsible innovation, balancing technological advancement with robust safeguards to protect human autonomy, privacy, and social equity in an AI-integrated world.</p>
+    <p>The deployment of LLMs presents unique ethical challenges, necessitating careful consideration of potential harms and a commitment to fairness, transparency, and responsibility. The Seven York Maxims offer a framework that can guide ethical practices in LLM development and deployment, fostering a future where AI aligns with societal values and promotes human flourishing.</p>
+    
+    <p>By adhering to these principles, developers, policymakers, and society as a whole can work together to ensure that LLMs contribute positively to our world, respecting the rights, autonomy, and well-being of all individuals and communities they impact.</p>
+    
+    </ul>
   </div>
   <footer>
     <p>&copy; 2024 UKRI AI Centre for Doctoral Training in Safe Artificial Intelligence Systems (SAINTS), York, UK</p>
