@@ -51,17 +51,17 @@
     .media-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: 1.5em;
+      grid-gap: 2em;
       justify-items: center;
       align-items: center;
       margin: 2em auto;
-      max-width: 700px;
+      max-width: 1000px;
     }
     .media-grid img,
     .media-grid video {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
+      width: 420px;
+      height: 420px;
+      object-fit: contain; /* Show full image */
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(220, 20, 120, 0.15);
       background: #fff;
@@ -70,16 +70,16 @@
     .media-grid video {
       background: #fff0f5;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
       .media-grid {
         grid-template-columns: 1fr;
       }
       .media-grid img,
       .media-grid video {
-        width: 90vw;
-        height: 50vw;
-        max-width: 350px;
-        max-height: 350px;
+        width: 95vw;
+        height: 60vw;
+        max-width: 98vw;
+        max-height: 98vw;
       }
     }
   </style>
@@ -115,14 +115,18 @@
     <!-- MEDIA GRID -->
     <div class="media-grid">
       <img src="../assets/images/book.png" alt="Book Commission">
-      <video controls>
-        <source src="../assets/images/movement.png" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <img src="../assets/images/cook.png" alt="Portrait Commission">
       <img src="../assets/images/ocean.PNG" alt="Ocean Commission">
       <img src="../assets/images/compass.jpg" alt="Compass Personal">
       <img src="../assets/images/icon1.png" alt="Personal Icon 1">
       <img src="../assets/images/icon2.png" alt="Personal Icon 2">
+      <img src="../assets/images/blue.png" alt="Personal Icon 3">
+      <img src="../assets/images/card.png" alt="Personal Icon 4">
+      <img src="../assets/images/angel.png" alt="Personal Icon 4">
+      <img src="../assets/images/game.png" alt="Personal Icon 4">
+      <img src="../assets/images/girl.png" alt="Personal Icon 4">
+      <img src="../assets/images/lain.png" alt="Personal Icon 4">
+      <img src="../assets/images/ling.png" alt="Personal Icon 4">
     </div>
 
     <!-- FOOTER -->
