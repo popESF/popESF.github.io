@@ -19,7 +19,7 @@
     {
       font-size: 2.5rem;
       font-weight: bold;
-      color: #f783ac;
+      color: #ffe0eb;
       transition: transform 0.3s ease;
     }
     .main-title, .subheader-text {
@@ -45,6 +45,42 @@
 
     .footer-icon {
       filter: hue-rotate(290deg);
+    }
+
+    /* --- GRID STYLES --- */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1.5em;
+      justify-items: center;
+      align-items: center;
+      margin: 2em auto;
+      max-width: 700px;
+    }
+    .media-grid img,
+    .media-grid video {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(220, 20, 120, 0.15);
+      background: #fff;
+      display: block;
+    }
+    .media-grid video {
+      background: #fff0f5;
+    }
+    @media (max-width: 700px) {
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+      .media-grid img,
+      .media-grid video {
+        width: 90vw;
+        height: 50vw;
+        max-width: 350px;
+        max-height: 350px;
+      }
     }
   </style>
   <link rel="icon" href="../assets/images/1311.png" />
@@ -72,40 +108,27 @@
   <div id="main-content">
     <!-- PROJECT HEADER -->
     <div id="project-header">
-      <div class="main-title">Projects</div>
-      <div class="body-text"></div>Gallery</div>
-      <div class="body-text">Here are some of my recent pieces both personal and commission based</div>
+      <div class="main-title">Projects Gallery</div>
+      <div class="body-text">Here are some of my recent pieces, both personal and commission based.</div>
     </div>
 
-
-    <!-- Commission -->
-    <div id="project-gallery">
-      <img src="../assets/images/book.png" alt="Image">
+    <!-- MEDIA GRID -->
+    <div class="media-grid">
+      <img src="../assets/images/book.png" alt="Book Commission">
+      <video controls>
+        <source src="../assets/images/movement.png" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <img src="../assets/images/ocean.PNG" alt="Ocean Commission">
+      <img src="../assets/images/compass.jpg" alt="Compass Personal">
+      <img src="../assets/images/icon1.png" alt="Personal Icon 1">
+      <img src="../assets/images/icon2.png" alt="Personal Icon 2">
     </div>
-    <video width="320" height="240" controls>
-      <source src="../assets/images/movement.png" type="Image">
-    </video>
-    <div id="project-gallery">
-      <img src="../assets/images/ocean.PNG" alt="Image">
-    </div>
-
-    <!-- Personal -->
-    <div id="project-gallery">
-      <img src="../assets/images/compass.jpg" alt="Image">
-    </div>
-    <div id="project-gallery">
-      <img src="../assets/images/icon1.png" alt="Image">
-    </div>
-    <div id="project-gallery">
-      <img src="../assets/images/icon2.png" alt="Image">
-    </div>
-
-    <!-- Scott Award winning work -->
 
     <!-- FOOTER -->
     <div id="footer">
       <a class="icon-link" href="mailto:pf693@york.ac.uk">
-        <image src="../assets/icons/mail.svg" class="footer-icon"/>
+        <img src="../assets/icons/mail.svg" class="footer-icon" alt="Mail Icon"/>
       </a>
     </div>
   </body>
