@@ -38,6 +38,48 @@
       z-index: -1;
     }
 
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 8% 12%, rgba(255, 255, 255, 0.95), transparent 1px),
+        radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.85), transparent 1px),
+        radial-gradient(circle at 30% 68%, rgba(255, 255, 255, 0.9), transparent 1px),
+        radial-gradient(circle at 42% 40%, rgba(255, 255, 255, 0.7), transparent 1px),
+        radial-gradient(circle at 58% 18%, rgba(255, 255, 255, 0.8), transparent 1px),
+        radial-gradient(circle at 72% 62%, rgba(255, 255, 255, 0.9), transparent 1px),
+        radial-gradient(circle at 86% 32%, rgba(255, 255, 255, 0.75), transparent 1px),
+        radial-gradient(circle at 90% 82%, rgba(255, 255, 255, 0.85), transparent 1px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    .scrolling-text {
+      color: #ff3333;
+      display: inline-block;
+      transform: translateX(-120%);
+      opacity: 0;
+      animation: scrollIn 2.6s ease-out forwards;
+      text-shadow: 0 0 16px rgba(255, 51, 51, 0.35);
+    }
+
+    #project-header {
+      overflow: hidden;
+    }
+
+    @keyframes scrollIn {
+      0% {
+        transform: translateX(-120%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
     .navbar {
       width: 100%;
       padding: 30px 50px;
@@ -261,7 +303,7 @@
     <!-- PROJECT HEADER -->
     <div id="project-header">
       <div class="main-title">Awards & Achievements</div>
-      <div class="body-text">Here is the homepage for all the awards and achievements I have been lucky to gain over the past few years. Scroll down to discover more!</div>
+      <div class="body-text scrolling-text">Here is the homepage for all the awards and achievements I have been lucky to gain over the past few years. Scroll down to discover more!</div>
     </div>
 
     <div id="project-details">
