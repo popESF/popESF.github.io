@@ -212,6 +212,15 @@ nav, nav a {
 .card .thumb {
   font-size: 11px;
 }
+.cat-caption {
+  color: var(--pink);
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--pink);
+  margin: 0;
+  animation: bl 1.4s steps(2) infinite;
+}
 </style>
 </head>
 <body>
@@ -278,11 +287,17 @@ nav, nav a {
   <div class="ticker" aria-hidden="true"><span>✮ ✧ ✮ ✧ ✮ ✧ ✮ ✧ ✮ ✧ ✧ ✮ ✮ ✧ ✮ ✧ ✮ ✧ ✮ ✧ &nbsp; ✮ ✧ ✮ ✧ ✮ ✧ ✮ ✧ ✮ ✧ ✧ ✮ ✮ ✧ ✮ ✧ ✮ ✧ ✮ ✧</span></div>
 
   <header class="hero">
-    <div class="avatar">
-      <pre aria-hidden="true"> 
-</pre>
-      <img src="assets/images/cat.jpg" alt="Profile picture of Poppy Fynes" onerror="this.remove()">
-    </div>
+    <div class="cat-widget">
+  <p class="cat-heading">✦ CAT IMAGE OF THE WEEK ✦</p>
+
+  <div class="avatar">
+    <img src="assets/images/cat.jpg"
+        alt="Profile picture of Poppy Fynes"
+        onerror="this.remove()">
+  </div>
+
+  <p class="cat-caption">[ CHASE ME ]</p>
+  </div>
     <div>
       <p class="tag">&gt; Doctoral Researcher // Safe AI</p>
       <h1 data-t="Poppy Fynes">Poppy Fynes</h1>
