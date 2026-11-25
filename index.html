@@ -119,7 +119,13 @@ h2{font:400 34px/1 var(--disp);color:var(--ice);margin:0 0 16px;text-shadow:0 0 
 h2 i{font-style:normal;color:var(--dim)}
 section{padding:34px 0;border-top:1px dashed #3a2f4a}
 .about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(180px,240px);gap:30px;align-items:start}
-.about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--pink);box-shadow:0 0 22px rgba(255,61,240,.25);background:var(--panel);filter:grayscale(.25) contrast(1.08)}
+.about-image{position:relative;cursor:pointer;outline-offset:6px}
+.about-image:focus-visible{outline:2px dashed var(--ice)}
+.about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--pink);box-shadow:0 0 22px rgba(255,61,240,.25);background:var(--panel);filter:grayscale(.25) contrast(1.08);transition:transform .18s,box-shadow .18s}
+.about-image:hover .about-photo{transform:scale(1.015);box-shadow:0 0 28px rgba(255,0,242,.5)}
+.photo-reaction{position:absolute;z-index:4;left:var(--x);top:var(--y);pointer-events:none;color:var(--pink);font:10px/1.2 var(--disp);white-space:nowrap;text-shadow:0 0 7px var(--pink),0 0 14px var(--pink);animation:photo-pop 1.25s ease-out forwards}
+.photo-reaction.heart{font:22px/1 var(--body)}
+@keyframes photo-pop{0%{opacity:0;transform:translate(-50%,0) scale(.45) rotate(-12deg)}18%{opacity:1;transform:translate(-50%,-10px) scale(1.15) rotate(5deg)}100%{opacity:0;transform:translate(-50%,-75px) scale(.8) rotate(12deg)}}
 .about p{margin:0 0 14px;max-width:62ch}
 .status{border:1px solid #3a2f4a;background:var(--panel);padding:16px;font-size:13px;align-self:start;position:relative}
 .status::before{content:"";position:absolute;left:-1px;top:-1px;width:14px;height:14px;border-left:2px solid var(--pink);border-top:2px solid var(--pink)}
@@ -306,7 +312,7 @@ _.|o o  |_   ) )
         <p>I am a current Doctoral Researcher in Safe Ai (Department of Computer Science) at the University of York’s Institute for Safe Autonomy. My PhD focuses on combining Digital Accessibility and Machine Learning techniques to enable sign language recognition. Previously i worked in accessibility consulting, cyber security and game production! If you would like to learn more about my research, publications and projects, scroll for more.... </p>
         <p>Accessibility Specialist & Software Developer. Available for consultation based work. </p>
       </div>
-      <div class="about-image">
+      <div class="about-image" role="button" tabindex="0" aria-label="Click my photo for a surprise">
         <img class="about-photo" src="assets/images/me.png" alt="Photo of me">
       </div>
     </div>
@@ -479,6 +485,32 @@ if (cat) {
   });
 }
 
+  }
+
+
+  // Click the About Me photo for a little burst of pink ASCII hearts and reactions.
+  var aboutPhoto = document.querySelector(".about-image");
+  if (aboutPhoto) {
+    function photoSurprise() {
+      var reactions = ["<3", "♡", "♥", "WOW!", "OMG!", "♡", "<3", "OMG!"];
+      reactions.forEach(function(word, index) {
+        var burst = document.createElement("span");
+        burst.className = "photo-reaction" + (/[♡♥<]/.test(word) ? " heart" : "");
+        burst.textContent = word;
+        burst.style.setProperty("--x", (8 + Math.random() * 84) + "%");
+        burst.style.setProperty("--y", (12 + Math.random() * 72) + "%");
+        burst.style.animationDelay = (Math.random() * 0.18) + "s";
+        aboutPhoto.appendChild(burst);
+        setTimeout(function() { burst.remove(); }, 1550);
+      });
+    }
+    aboutPhoto.addEventListener("click", photoSurprise);
+    aboutPhoto.addEventListener("keydown", function(event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        photoSurprise();
+      }
+    });
   }
 
   // one-off boot sequence on load
