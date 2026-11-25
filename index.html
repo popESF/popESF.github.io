@@ -72,6 +72,19 @@ h1::after{color:var(--pink);text-shadow:none;transform:translateX(3px);clip-path
 .btn{display:inline-block;border:1px solid var(--pink);padding:9px 16px;color:var(--pink);box-shadow:0 0 12px rgba(255,61,240,.3);transition:background .15s,color .15s}
 .btn:hover{background:var(--pink);color:#000}
 
+/* THE CAT IS ALIVE */
+.avatar {
+  z-index: 5;
+  will-change: transform;
+  transition: transform 280ms cubic-bezier(.2, .8, .2, 1);
+  cursor: crosshair;
+}
+
+/* Little startled effect */
+.avatar.cat-scared {
+  filter: drop-shadow(0 0 12px var(--pink));
+}
+
 /* sections */
 h2{font:400 34px/1 var(--disp);color:var(--ice);margin:0 0 16px;text-shadow:0 0 10px rgba(125,249,255,.5);letter-spacing:.04em}
 h2 i{font-style:normal;color:var(--dim)}
@@ -262,6 +275,85 @@ footer .row{display:flex;gap:20px}
       document.body.appendChild(t);
       setTimeout(function(){ t.remove(); }, 1000);
     });
+
+// THE ESCAPE CAT 🐈
+var cat = document.querySelector(".avatar");
+var fleeCooldown = false;
+var returnTimer;
+var fleeCount = 0;
+var catX = 0;
+var catY = 0;
+
+if (cat) {
+  window.addEventListener("pointermove", function(e) {
+
+    // Only chase desktop mouse pointers
+    if (e.pointerType !== "mouse") return;
+
+    var rect = cat.getBoundingClientRect();
+
+    var centerX = rect.left + rect.width / 2;
+    var centerY = rect.top + rect.height / 2;
+
+    var dx = centerX - e.clientX;
+    var dy = centerY - e.clientY;
+
+    var distanceFromMouse = Math.sqrt(dx * dx + dy * dy);
+
+    // Cat notices the mouse approaching
+    if (distanceFromMouse < 180 && !fleeCooldown) {
+
+      fleeCooldown = true;
+      fleeCount = Math.min(fleeCount + 1, 5);
+
+      // Calculate direction AWAY from mouse
+      var angle = Math.atan2(dy, dx);
+
+      // Add unpredictable movement
+      angle += (Math.random() - 0.5) * 0.9;
+
+      // Gets more evasive when chased repeatedly
+      var jump = 150 + Math.random() * 100 + fleeCount * 15;
+
+      var moveX = Math.cos(angle) * jump;
+      var moveY = Math.sin(angle) * jump;
+
+      // Keep cat inside the screen
+      var newLeft = Math.max(
+        12,
+        Math.min(window.innerWidth - rect.width - 12, rect.left + moveX)
+      );
+
+      var newTop = Math.max(
+        12,
+        Math.min(window.innerHeight - rect.height - 12, rect.top + moveY)
+      );
+
+      // Move!
+      catX += newLeft - rect.left;
+      catY += newTop - rect.top;
+
+      cat.style.transform =
+        "translate3d(" + catX + "px," + catY + "px,0)";
+
+      // Little escape cooldown
+      clearTimeout(returnTimer);
+
+      setTimeout(function() {
+        fleeCooldown = false;
+      }, 350);
+
+      // Eventually return home if nobody is chasing
+      returnTimer = setTimeout(function() {
+        cat.style.transform = "translate3d(0,0,0)";
+        catX = 0;
+        catY = 0;
+        fleeCount = 0;
+      }, 1800);
+    }
+  });
+}
+
   }
 
   // one-off boot sequence on load
