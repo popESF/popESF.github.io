@@ -9,14 +9,14 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme:dark;
   --void:#030204; --panel:#0b0810; --ink:#d8d0e8; --dim:#8a8099;
   --pink:#ff00f2; --ice:#fffb00; --rust:#9a3148;
-  --disp: "Press Start 2P", monospace;
-  --body: "Press Start 2P", monospace;
+  --disp: "DynaPuff", cursive;
+  --body: "Nunito", sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -73,6 +73,9 @@ a:hover{color:var(--pink)}
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.95}}
 .trail{position:fixed;z-index:60;pointer-events:none;color:var(--pink);text-shadow:0 0 8px var(--pink),0 0 18px var(--ice);animation:fall 1s ease-out forwards}
 @keyframes fall{to{opacity:0;transform:translateY(26px) rotate(90deg) scale(.4)}}
+
+/* Keep decorative ASCII art in a true monospace font */
+.side-art pre, .avatar pre, #boot pre, .card .thumb pre{font-family:"Press Start 2P",monospace}
 
 /* layout */
 .wrap{position:relative;z-index:2;max-width:960px;margin:0 auto;padding:0 22px 40px}
@@ -313,7 +316,7 @@ _.|o o  |_   ) )
         <p>Accessibility Specialist & Software Developer. Available for consultation based work. </p>
       </div>
       <div class="about-image" role="button" tabindex="0" aria-label="Click my photo for a surprise">
-        <img class="about-photo" src="assets/images/me.png" alt="Photo of me">
+        <img class="about-photo" src="assets/images/photo.png" alt="Photo of me">
       </div>
     </div>
   </section>
