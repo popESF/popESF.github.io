@@ -118,7 +118,8 @@ h1::after{color:var(--pink);text-shadow:none;transform:translateX(3px);clip-path
 h2{font:400 34px/1 var(--disp);color:var(--ice);margin:0 0 16px;text-shadow:0 0 10px rgba(125,249,255,.5);letter-spacing:.04em}
 h2 i{font-style:normal;color:var(--dim)}
 section{padding:34px 0;border-top:1px dashed #3a2f4a}
-.about{display:grid;grid-template-columns:1.5fr 1fr;gap:30px}
+.about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(180px,240px);gap:30px;align-items:start}
+.about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--pink);box-shadow:0 0 22px rgba(255,61,240,.25);background:var(--panel);filter:grayscale(.25) contrast(1.08)}
 .about p{margin:0 0 14px;max-width:62ch}
 .status{border:1px solid #3a2f4a;background:var(--panel);padding:16px;font-size:13px;align-self:start;position:relative}
 .status::before{content:"";position:absolute;left:-1px;top:-1px;width:14px;height:14px;border-left:2px solid var(--pink);border-top:2px solid var(--pink)}
@@ -305,12 +306,8 @@ _.|o o  |_   ) )
         <p>I am a current Doctoral Researcher in Safe Ai (Department of Computer Science) at the University of York’s Institute for Safe Autonomy. My PhD focuses on combining Digital Accessibility and Machine Learning techniques to enable sign language recognition. Previously i worked in accessibility consulting, cyber security and game production! If you would like to learn more about my research, publications and projects, scroll for more.... </p>
         <p>Accessibility Specialist & Software Developer. Available for consultation based work. </p>
       </div>
-      <div class="status">
-        <div><span>user</span>Poppy Fynes</div>
-        <div><span>role</span>PhD, BSc, Research.</div>
-        <div><span>base</span>University of York</div>
-        <div><span>lab</span>Institute for Safe Autonomy</div>
-        <div><span>work</span><b class="on">available</b></div>
+      <div class="about-image">
+        <img class="about-photo" src="assets/images/me.png" alt="Photo of me">
       </div>
     </div>
   </section>
