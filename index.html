@@ -169,15 +169,21 @@ footer .row{display:flex;gap:20px}
 #caught-count{font:12px var(--tech);color:var(--ice);background:rgba(3,2,4,.88);border:1px dashed var(--ice);padding:8px 10px}
 #game-message{position:fixed;z-index:90;left:50%;bottom:24px;transform:translateX(-50%);max-width:min(90vw,560px);padding:13px 18px;background:var(--panel);border:1px solid var(--pink);color:var(--ice);font:15px/1.5 var(--tech);text-align:center;box-shadow:0 0 22px rgba(255,0,242,.35);opacity:0;pointer-events:none;transition:opacity .2s}
 #game-message.show{opacity:1}
-.shooting-star{position:fixed;z-index:65;left:-90px;top:var(--star-y);border:0;background:transparent;color:var(--ice);font:26px/1 var(--tech);text-shadow:0 0 8px var(--ice),0 0 18px var(--pink);cursor:pointer;padding:14px;transform:rotate(var(--star-angle,-22deg));animation:shoot-across var(--star-duration,2.2s) linear forwards}
+.shooting-star{position:fixed;z-index:65;left:-90px;top:var(--star-y);border:0;background:transparent;color:var(--ice);font:26px/1 var(--tech);text-shadow:0 0 8px var(--ice),0 0 18px var(--pink);cursor:pointer;padding:14px;transform:rotate(-22deg);animation:shoot-across 2.8s linear forwards}
 .shooting-star::after{content:"";position:absolute;width:75px;height:2px;right:24px;top:50%;background:linear-gradient(90deg,transparent,var(--pink),var(--ice));box-shadow:0 0 8px var(--pink)}
-@keyframes shoot-across{to{left:calc(100vw + 100px);top:calc(var(--star-y) + var(--star-drift,90px));opacity:.15}}
+@keyframes shoot-across{to{left:calc(100vw + 100px);top:calc(var(--star-y) + 90px);opacity:.25}}
 .star-explosion .st{animation:star-burst .9s ease-out both!important}
 @keyframes star-burst{0%{transform:scale(1);opacity:1}55%{transform:translate(var(--burst-x),var(--burst-y)) scale(2.8);opacity:1;color:#fff}100%{transform:translate(calc(var(--burst-x) * 1.5),calc(var(--burst-y) * 1.5)) scale(.1);opacity:0}}
 body.matrix-mode{--void:#010b05;--panel:#03170b;--ink:#b8ffd0;--dim:#63a77a;--pink:#39ff78;--ice:#b6ff00;--rust:#168b4a;--line:#14552c;--panel-edge:#14552c}
 body.vaporwave-mode{--void:#08051b;--panel:#100b2b;--ink:#e8dcff;--dim:#a49acb;--pink:#ff55d9;--ice:#55eaff;--rust:#b36bff;--line:#43316b;--panel-edge:#43316b}
 body.matrix-mode .ticker,body.matrix-mode h1,body.matrix-mode .side-art{filter:hue-rotate(65deg)}
 body.cat-sprint .avatar{transition:transform .9s cubic-bezier(.2,.8,.2,1);transform:translate3d(110vw,-20vh,0) rotate(720deg)!important}
+#cv-status{display:none;margin-top:12px;max-width:360px;border:1px solid var(--ice);padding:12px;background:var(--panel);font:13px/1.6 var(--tech);color:var(--ice)}
+#cv-status.active{display:block}
+#cv-progress{height:8px;background:#21182b;margin-top:8px;overflow:hidden}
+#cv-progress span{display:block;width:0;height:100%;background:var(--pink);box-shadow:0 0 10px var(--pink);transition:width .18s}
+#cv-final{display:none;margin-top:10px}
+#cv-final a{display:inline-block;border:1px solid var(--pink);padding:7px 10px}
 .cat-widget .avatar{cursor:pointer}
 .cat-widget .avatar:focus-visible{outline:2px dashed var(--ice);outline-offset:5px}
 @media(max-width:600px){#secret-tools{top:8px;right:8px;gap:5px}.secret-btn{font-size:11px;padding:7px 8px}#caught-count{font-size:10px;padding:7px 8px}.hero{padding-top:65px}}
@@ -260,6 +266,13 @@ _.|o o  |_   ) )
       <h1 data-t="Poppy Fynes">Poppy Fynes</h1>
       <p class="lede">Award winning Doctoral Researcher (PhD) at the University of York in Safe AI - Talk to me about Accessibility, Interactivity, Software Engineering and Robotics!.</p>
       <a class="btn" href="https://www.linkedin.com/in/poppy-fynes-700a9b183/">Check out my LinkedIn</a>
+     <div style="margin-top:12px">
+       <button class="btn" id="cv-download" type="button">Download CV.exe</button>
+       <div id="cv-status" aria-live="polite">
+         <div id="cv-status-line">initialising secure CV transfer...</div>
+         <div id="cv-progress"><span></span></div>
+         <div id="cv-final"><a id="cv-link" href="assets/files/poppy-fynes-cv.pdf" target="_blank" rel="noopener">Open my CV ↗</a></div>
+       </div>
      </div>
     </div>
   </header>
@@ -498,10 +511,7 @@ _.|o o  |_   ) )
     star.className = "shooting-star";
     star.textContent = "✦";
     star.setAttribute("aria-label","Catch the shooting star");
-    star.style.setProperty("--star-y",(4 + Math.random()*82)+"vh");
-    star.style.setProperty("--star-drift",(-100 + Math.random()*200)+"px");
-    star.style.setProperty("--star-angle",(-35 + Math.random()*25)+"deg");
-    star.style.setProperty("--star-duration",(1.7 + Math.random()*1.1)+"s");
+    star.style.setProperty("--star-y",(12 + Math.random()*68)+"vh");
     var caughtThis = false;
     star.addEventListener("click",function(){
       if(caughtThis) return;
@@ -519,7 +529,7 @@ _.|o o  |_   ) )
     setTimeout(function(){if(star.isConnected) star.remove();},3000);
     scheduleStar();
   }
-  function scheduleStar(){clearTimeout(starTimer);starTimer=setTimeout(launchStar,2200+Math.random()*2800);}
+  function scheduleStar(){clearTimeout(starTimer);starTimer=setTimeout(launchStar,7000+Math.random()*9000);}
   if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) scheduleStar();
 
   // Space cat magic 8-ball.
