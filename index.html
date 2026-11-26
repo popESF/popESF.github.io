@@ -160,6 +160,29 @@ footer .row{display:flex;gap:20px}
   .st{opacity:.5}
   .ticker span{padding-left:0}
 }
+
+/* Secret controls, themes and space-cat extras */
+:root{--line:#3a2f4a;--panel-edge:#3a2f4a}
+#secret-tools{position:fixed;z-index:75;top:12px;right:14px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 28px)}
+.secret-btn{font:13px var(--tech);letter-spacing:.04em;color:var(--ice);background:rgba(3,2,4,.88);border:1px solid var(--pink);padding:8px 11px;cursor:pointer;text-shadow:0 0 7px currentColor;box-shadow:0 0 10px rgba(255,0,242,.2)}
+.secret-btn:hover{background:var(--pink);color:#000}
+#caught-count{font:12px var(--tech);color:var(--ice);background:rgba(3,2,4,.88);border:1px dashed var(--ice);padding:8px 10px}
+#game-message{position:fixed;z-index:90;left:50%;bottom:24px;transform:translateX(-50%);max-width:min(90vw,560px);padding:13px 18px;background:var(--panel);border:1px solid var(--pink);color:var(--ice);font:15px/1.5 var(--tech);text-align:center;box-shadow:0 0 22px rgba(255,0,242,.35);opacity:0;pointer-events:none;transition:opacity .2s}
+#game-message.show{opacity:1}
+.shooting-star{position:fixed;z-index:65;left:-90px;top:var(--star-y);border:0;background:transparent;color:var(--ice);font:26px/1 var(--tech);text-shadow:0 0 8px var(--ice),0 0 18px var(--pink);cursor:pointer;padding:14px;transform:rotate(var(--star-angle,-22deg));animation:shoot-across var(--star-duration,2.2s) linear forwards}
+.shooting-star::after{content:"";position:absolute;width:75px;height:2px;right:24px;top:50%;background:linear-gradient(90deg,transparent,var(--pink),var(--ice));box-shadow:0 0 8px var(--pink)}
+@keyframes shoot-across{to{left:calc(100vw + 100px);top:calc(var(--star-y) + var(--star-drift,90px));opacity:.15}}
+.star-explosion .st{animation:star-burst .9s ease-out both!important}
+@keyframes star-burst{0%{transform:scale(1);opacity:1}55%{transform:translate(var(--burst-x),var(--burst-y)) scale(2.8);opacity:1;color:#fff}100%{transform:translate(calc(var(--burst-x) * 1.5),calc(var(--burst-y) * 1.5)) scale(.1);opacity:0}}
+body.matrix-mode{--void:#010b05;--panel:#03170b;--ink:#b8ffd0;--dim:#63a77a;--pink:#39ff78;--ice:#b6ff00;--rust:#168b4a;--line:#14552c;--panel-edge:#14552c}
+body.vaporwave-mode{--void:#08051b;--panel:#100b2b;--ink:#e8dcff;--dim:#a49acb;--pink:#ff55d9;--ice:#55eaff;--rust:#b36bff;--line:#43316b;--panel-edge:#43316b}
+body.matrix-mode .ticker,body.matrix-mode h1,body.matrix-mode .side-art{filter:hue-rotate(65deg)}
+body.cat-sprint .avatar{transition:transform .9s cubic-bezier(.2,.8,.2,1);transform:translate3d(110vw,-20vh,0) rotate(720deg)!important}
+.cat-widget .avatar{cursor:pointer}
+.cat-widget .avatar:focus-visible{outline:2px dashed var(--ice);outline-offset:5px}
+@media(max-width:600px){#secret-tools{top:8px;right:8px;gap:5px}.secret-btn{font-size:11px;padding:7px 8px}#caught-count{font-size:10px;padding:7px 8px}.hero{padding-top:65px}}
+@media(prefers-reduced-motion:reduce){.shooting-star{animation:none;left:40%;top:25%}.star-explosion .st{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -204,6 +227,13 @@ _.|o o  |_   ) )
 </pre>
 </aside>
 
+
+<div id="secret-tools" aria-label="Secret site controls">
+  <button class="secret-btn" id="theme-switch" type="button">[ theme ]</button>
+  <span id="caught-count" aria-live="polite">✦ stars caught: <b id="caught-number">0</b>/10</span>
+</div>
+<div id="game-message" role="status" aria-live="polite"></div>
+
 <div id="boot" aria-hidden="true"><pre id="bootText"></pre><small>click to skip</small></div>
 
 <div class="wrap">
@@ -220,7 +250,7 @@ _.|o o  |_   ) )
   <header class="hero">
     <div class="cat-widget">
       <p class="cat-heading">✦ CAT IMAGE OF THE WEEK ✦</p>
-      <div class="avatar">
+      <div class="avatar" id="space-cat" role="button" tabindex="0" aria-label="Ask the space cat a question">
         <img src="assets/images/cat.jpg" alt="Profile picture of Poppy Fynes" onerror="this.remove()">
       </div>
       <p class="cat-caption">[ CHASE ME ]</p>
@@ -230,6 +260,7 @@ _.|o o  |_   ) )
       <h1 data-t="Poppy Fynes">Poppy Fynes</h1>
       <p class="lede">Award winning Doctoral Researcher (PhD) at the University of York in Safe AI - Talk to me about Accessibility, Interactivity, Software Engineering and Robotics!.</p>
       <a class="btn" href="https://www.linkedin.com/in/poppy-fynes-700a9b183/">Check out my LinkedIn</a>
+     </div>
     </div>
   </header>
 
@@ -241,7 +272,7 @@ _.|o o  |_   ) )
         <p>Accessibility Specialist & Software Developer. Available for consultation based work. </p>
       </div>
       <div class="about-image" role="button" tabindex="0" aria-label="Click my photo for a surprise">
-        <img class="about-photo" src="assets/images/seal.gif" alt="Photo of me">
+        <img class="about-photo" src="assets/images/me.png" alt="Photo of me">
       </div>
     </div>
   </section>
@@ -430,5 +461,157 @@ _.|o o  |_   ) )
   setTimeout(finish, 4500);
 })();
 </script>
+
+<script>
+(function(){
+  var body = document.body;
+  var message = document.getElementById("game-message");
+  var messageTimer;
+  function tell(text){
+    message.textContent = text;
+    message.classList.add("show");
+    clearTimeout(messageTimer);
+    messageTimer = setTimeout(function(){message.classList.remove("show");}, 3200);
+  }
+
+  // Theme palette: original neon, terminal matrix, then vaporwave.
+  var themes = ["original","matrix","vaporwave"], themeIndex = 0;
+  var themeButton = document.getElementById("theme-switch");
+  function applyTheme(){
+    body.classList.remove("matrix-mode","vaporwave-mode");
+    if(themes[themeIndex] === "matrix") body.classList.add("matrix-mode");
+    if(themes[themeIndex] === "vaporwave") body.classList.add("vaporwave-mode");
+    themeButton.textContent = "[ theme: " + themes[themeIndex] + " ]";
+  }
+  themeButton.addEventListener("click",function(){
+    themeIndex = (themeIndex + 1) % themes.length;
+    applyTheme();
+  });
+
+  // Shooting stars: click/tap one to catch it.
+  var caught = 0, starTimer;
+  var countNode = document.getElementById("caught-number");
+  function launchStar(){
+    if(document.hidden) { scheduleStar(); return; }
+    var star = document.createElement("button");
+    star.type = "button";
+    star.className = "shooting-star";
+    star.textContent = "✦";
+    star.setAttribute("aria-label","Catch the shooting star");
+    star.style.setProperty("--star-y",(4 + Math.random()*82)+"vh");
+    star.style.setProperty("--star-drift",(-100 + Math.random()*200)+"px");
+    star.style.setProperty("--star-angle",(-35 + Math.random()*25)+"deg");
+    star.style.setProperty("--star-duration",(1.7 + Math.random()*1.1)+"s");
+    var caughtThis = false;
+    star.addEventListener("click",function(){
+      if(caughtThis) return;
+      caughtThis = true;
+      caught++;
+      countNode.textContent = caught;
+      star.remove();
+      if(caught >= 10){
+        tell("10 STARS CAUGHT! The space cat has promoted you to Galactic Stardust Royalty. ✨");
+      } else {
+        tell("Nice catch! " + caught + "/10 stars collected ✦");
+      }
+    });
+    document.body.appendChild(star);
+    setTimeout(function(){if(star.isConnected) star.remove();},3000);
+    scheduleStar();
+  }
+  function scheduleStar(){clearTimeout(starTimer);starTimer=setTimeout(launchStar,2200+Math.random()*2800);}
+  if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) scheduleStar();
+
+  // Space cat magic 8-ball.
+  var cat = document.getElementById("space-cat");
+  var answers = [
+    "The stars say yes. Probably. ✦",
+    "Ask again after snacks.",
+    "The cosmic tuna is aligned in your favour.",
+    "Outlook fuzzy. Cat is sitting on the telescope.",
+    "Absolutely. The moon has signed the paperwork.",
+    "Nope. I knocked the answer off the table.",
+    "The universe says: hydrate first.",
+    "A mysterious paw points to... maybe.",
+    "Yes, but only if you believe in yourself (and treats).",
+    "404: certainty not found. Try again after a nap."
+  ];
+  function askCat(){
+    tell("SPACE CAT SAYS: " + answers[Math.floor(Math.random()*answers.length)]);
+  }
+  if(cat){
+    cat.addEventListener("click",askCat);
+    cat.addEventListener("keydown",function(e){
+      if(e.key==="Enter" || e.key===" "){e.preventDefault();askCat();}
+    });
+  }
+
+  // Konami code: explode the stars, engage matrix mode and send the cat sprinting.
+  var code = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","KeyB","KeyA"];
+  var entered = [];
+  window.addEventListener("keydown",function(e){
+    if(e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+    entered.push(e.code);
+    entered = entered.slice(-code.length);
+    if(code.every(function(key,i){return entered[i]===key;})){
+      entered = [];
+      var starField = document.getElementById("stars");
+      starField.classList.remove("star-explosion");
+      void starField.offsetWidth;
+      starField.classList.add("star-explosion");
+      Array.prototype.forEach.call(starField.querySelectorAll(".st"),function(s){
+        s.style.setProperty("--burst-x",(Math.random()*2-1)*window.innerWidth*.42+"px");
+        s.style.setProperty("--burst-y",(Math.random()*2-1)*window.innerHeight*.42+"px");
+      });
+      themeIndex = 1; applyTheme();
+      body.classList.add("cat-sprint");
+      tell("KONAMI OVERRIDE ACCEPTED // MATRIX MODE ENABLED // CAT DEPLOYED");
+      setTimeout(function(){body.classList.remove("cat-sprint");},1150);
+      setTimeout(function(){starField.classList.remove("star-explosion");},1100);
+    }
+  });
+
+  // Fake hacker CV transfer. Set CV_URL below to your real hosted CV path.
+  var CV_URL = "assets/files/poppy-fynes-cv.pdf";
+  var cvButton = document.getElementById("cv-download");
+  var cvStatus = document.getElementById("cv-status");
+  var cvLine = document.getElementById("cv-status-line");
+  var cvBar = document.querySelector("#cv-progress span");
+  var cvFinal = document.getElementById("cv-final");
+  var cvLink = document.getElementById("cv-link");
+  var cvRunning = false;
+  var cvLines = [
+    "locating CV in the mainframe...",
+    "bribing the firewall... 23%",
+    "convincing the robots you are friendly... 48%",
+    "decrypting highly classified achievements... 71%",
+    "bribing the firewall... 87%",
+    "removing suspiciously many cat photos... 96%",
+    "ACCESS GRANTED. CV transfer ready."
+  ];
+  cvLink.href = CV_URL;
+  cvButton.addEventListener("click",function(){
+    if(cvRunning) return;
+    cvRunning = true;
+    cvStatus.classList.add("active");
+    cvFinal.style.display = "none";
+    cvBar.style.width = "0%";
+    var step = 0;
+    function progress(){
+      cvLine.textContent = cvLines[step];
+      cvBar.style.width = Math.min(100,Math.round((step+1)/cvLines.length*100))+"%";
+      step++;
+      if(step<cvLines.length) setTimeout(progress,550);
+      else {
+        cvFinal.style.display = "block";
+        cvButton.textContent = "CV unlocked ✓";
+        cvRunning = false;
+      }
+    }
+    progress();
+  });
+})();
+</script>
+
 </body>
 </html>
